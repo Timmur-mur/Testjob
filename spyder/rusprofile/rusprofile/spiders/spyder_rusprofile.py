@@ -43,7 +43,7 @@ class CompanySpyder(scrapy.Spider):
             if len(remove_currency(flag))>= 10:
                 print('--------возможно бот отбнаружен--------------')
 #попытка понизить приоритет запроса, снятие фильтра на повторные запросы 
-                yield Request(url=response.url, priority= -100, dont_filter=True)
+                yield Request(url=response.url, callback=self.parse_company, priority= -100, dont_filter=True)
 
 #загрузщик модели     
         l = ItemLoader(item = RusprofileItem(), selector=response)
