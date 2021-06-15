@@ -37,7 +37,7 @@ class CompanySpyder(scrapy.Spider):
 
     def parse_company(self, response):
  
-#html маркер обнарежения бота
+#html маркер обнаружения бота
         flag =  response.xpath('//div[@class="company-requisites"]/div[@class="company-row"][2]//dl[@class="company-col"][2]/dd[@class="company-info__text"]/span/text()').get()
         if flag:
             if len(remove_currency(flag))>= 10:
